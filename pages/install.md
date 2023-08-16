@@ -1,3 +1,4 @@
+**Install:**
 # Foreword
 
 Due to their proprietary nature, Nvidia GPUs have limited compatibility with
@@ -87,7 +88,14 @@ Hyprland and related are in the default repository:
 ** Ubuntu **
 Build Dependencies:
 ```bash
-sudo apt-get install -y meson wget build-essential ninja-build cmake-extras cmake gettext gettext-base fontconfig libfontconfig-dev libffi-dev libxml2-dev libdrm-dev libxkbcommon-x11-dev libxkbregistry-dev libxkbcommon-dev libpixman-1-dev libudev-dev libseat-dev seatd libxcb-dri3-dev libvulkan-dev libvulkan-volk-dev  vulkan-validationlayers-dev libvkfft-dev libgulkan-dev libegl-dev libgles2 libegl1-mesa-dev glslang-tools libinput-bin libinput-dev libxcb-composite0-dev libavutil-dev libavcodec-dev libavformat-dev libxcb-ewmh2 libxcb-ewmh-dev libxcb-present-dev libxcb-icccm4-dev libxcb-render-util0-dev libxcb-res0-dev libxcb-xinput-dev xdg-desktop-portal-wlr
+sudo apt-get install -y meson wget build-essential ninja-build cmake-extras 
+cmake gettext gettext-base fontconfig libfontconfig-dev libffi-dev libxml2-dev
+libdrm-dev libxkbcommon-x11-dev libxkbregistry-dev libxkbcommon-dev libpixman-1-dev
+libudev-dev libseat-dev seatd libxcb-dri3-dev libvulkan-dev libvulkan-volk-dev 
+vulkan-validationlayers-dev libvkfft-dev libgulkan-dev libegl-dev libgles2 libegl1-mesa-dev glslang-tools
+libinput-bin libinput-dev libxcb-composite0-dev libavutil-dev libavcodec-dev libavformat-dev
+libxcb-ewmh2 libxcb-ewmh-dev libxcb-present-dev libxcb-icccm4-dev
+libxcb-render-util0-dev libxcb-res0-dev libxcb-xinput-dev xdg-desktop-portal-wlr
 ```
 you will also need to build the latest wayland, wayland-protocols, and libdisplay-info tagged releases from source
 
@@ -133,23 +141,31 @@ libwlroots), you don't need to update anything else.
 *Arch dependencies*:
 
 ```plain
-yay -S gdb ninja gcc cmake meson libxcb xcb-proto xcb-util xcb-util-keysyms libxfixes libx11 libxcomposite xorg-xinput libxrender pixman wayland-protocols cairo pango seatd libxkbcommon xcb-util-wm xorg-xwayland libinput libliftoff libdisplay-info cpio
+yay -S gdb ninja gcc cmake meson libxcb xcb-proto xcb-util xcb-util-keysyms
+libxfixes libx11 libxcomposite xorg-xinput libxrender pixman wayland-protocols
+cairo pango seatd libxkbcommon xcb-util-wm xorg-xwayland libinput libliftoff libdisplay-info cpio
 ```
 
-_(Please make a pull request or open an issue if any packages are missing from the list)_
+*(Please make a pull request or open an issue if any packages are missing from the list)*
 
-_openSUSE dependencies_:
+*openSUSE dependencies*:
 
 ```sh
-zypper in gcc-c++ git meson cmake "pkgconfig(cairo)" "pkgconfig(egl)" "pkgconfig(gbm)" "pkgconfig(gl)" "pkgconfig(glesv2)" "pkgconfig(libdrm)" "pkgconfig(libinput)" "pkgconfig(libseat)" "pkgconfig(libudev)" "pkgconfig(pango)" "pkgconfig(pangocairo)" "pkgconfig(pixman-1)" "pkgconfig(vulkan)" "pkgconfig(wayland-client)" "pkgconfig(wayland-protocols)" "pkgconfig(wayland-scanner)" "pkgconfig(wayland-server)" "pkgconfig(xcb)" "pkgconfig(xcb-icccm)" "pkgconfig(xcb-renderutil)" "pkgconfig(xkbcommon)" "pkgconfig(xwayland)" glslang-devel Mesa-libGLESv3-devel "pkgconfig(xcb-errors)"
+zypper in gcc-c++ git meson cmake "pkgconfig(cairo)" "pkgconfig(egl)" "pkgconfig(gbm)"
+ "pkgconfig(gl)" "pkgconfig(glesv2)" "pkgconfig(libdrm)" "pkgconfig(libinput)" "pkgconfig(libseat)" "pkgconfig(libudev)"
+ "pkgconfig(pango)" "pkgconfig(pangocairo)" "pkgconfig(pixman-1)" "pkgconfig(vulkan)" "pkgconfig(wayland-client)"
+ "pkgconfig(wayland-protocols)" "pkgconfig(wayland-scanner)" "pkgconfig(wayland-server)" "pkgconfig(xcb)"
+ "pkgconfig(xcb-icccm)" "pkgconfig(xcb-renderutil)" "pkgconfig(xkbcommon)" "pkgconfig(xwayland)"
+ glslang-devel Mesa-libGLESv3-devel "pkgconfig(xcb-errors)"
 ```
 
 (this should also work on RHEL/Fedora if you remove `Mesa-libGLESv3-devel` and `pkgconfig(xcb-errors)`)
 
-_FreeBSD dependencies_:
+*FreeBSD dependencies*:
 
 ```plain
-pkg install git pkgconf gmake gcc evdev-proto cmake wayland-protocols wayland libglvnd libxkbcommon libinput cairo pango pixman libxcb
+pkg install git pkgconf gmake gcc evdev-proto cmake wayland-protocols wayland libglvnd
+libxkbcommon libinput cairo pango pixman libxcb
 pkg install meson jq `pkg rquery %dn wlroots` hwdata libdisplay-info libliftoff
 export CC=gcc CXX=g++ LDFLAGS="-static-libstdc++ -static-libgcc"
 ```
@@ -199,14 +215,16 @@ cd into the hyprland repo.
 for legacy renderer:
 
 ```plain
-sudo make clear && sudo make config && make protocols && make legacyrenderer && sudo cp ./build/Hyprland /usr/bin && sudo cp ./example/hyprland.desktop /usr/share/wayland-sessions
+sudo make clear && sudo make config && make protocols && make legacyrenderer &&
+sudo cp ./build/Hyprland /usr/bin && sudo cp ./example/hyprland.desktop /usr/share/wayland-sessions
 ```
 
 *please note the legacy renderer may not support some graphical features.*
 Any other config: with your release
 
 ```plain
-sudo make clear && sudo make config && make protocols && make [PRESET] && sudo cp ./build/Hyprland /usr/bin && sudo cp ./example/hyprland.desktop /usr/share/wayland-sessions
+sudo make clear && sudo make config && make protocols && make [PRESET]
+&& sudo cp ./build/Hyprland /usr/bin && sudo cp ./example/hyprland.desktop /usr/share/wayland-sessions
 ```
 
 # Custom Build flags

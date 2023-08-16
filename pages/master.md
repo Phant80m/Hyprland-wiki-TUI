@@ -1,3 +1,5 @@
+**Master tutorial:**
+
 If you are coming to Hyprland for the first time, this is the main tutorial to read.
 
 Due to a lot of people doing stupid stuff, this tutorial will cover literally everything

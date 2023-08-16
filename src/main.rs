@@ -3,7 +3,7 @@ use hyprland_wiki::*;
 
 fn view_area() -> Area {
     let mut area = Area::full_screen();
-    area.pad_for_max_width(u16::MAX);
+    area.pad_for_max_width(160);
     area
 }
 fn clear_and_redraw<W: Write>(w: &mut W, view: &mut MadView, _skin: &MadSkin) -> Result<(), Error> {
@@ -80,12 +80,12 @@ fn run_app(skin: MadSkin) -> Result<(), Error> {
 fn make_skin() -> MadSkin {
     let mut skin = MadSkin::default();
     skin.paragraph.align = Alignment::Center;
-    skin.set_bg(rgb(36, 36, 36));
+    skin.code_block.align = Alignment::Center;
+    // skin.set_bg(rgb(36, 36, 36));
     skin.set_headers_fg(rgb(127, 255, 212));
-    skin.bold.set_fg(White);
+    skin.bold.set_fg(rgb(192, 192, 192));
     skin.italic.set_fg(rgb(205, 210, 215));
     skin.scrollbar.thumb.set_fg(rgb(127, 255, 212));
-    skin.code_block.align = Alignment::Center;
     skin
 }
 

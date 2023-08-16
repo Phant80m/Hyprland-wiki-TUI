@@ -1,3 +1,5 @@
+**Home:**
+
 # Hyprland Wiki
 
 Hello there, dear traveler! Welcome to the Hyprland Wiki!
