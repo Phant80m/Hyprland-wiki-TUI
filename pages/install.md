@@ -88,14 +88,15 @@ Hyprland and related are in the default repository:
 ** Ubuntu **
 Build Dependencies:
 ```bash
-sudo apt-get install -y meson wget build-essential ninja-build cmake-extras 
+sudo apt-get install -y meson wget build-essential ninja-buildcmake-extras 
 cmake gettext gettext-base fontconfig libfontconfig-dev libffi-dev libxml2-dev
 libdrm-dev libxkbcommon-x11-dev libxkbregistry-dev libxkbcommon-dev libpixman-1-dev
 libudev-dev libseat-dev seatd libxcb-dri3-dev libvulkan-dev libvulkan-volk-dev 
-vulkan-validationlayers-dev libvkfft-dev libgulkan-dev libegl-dev libgles2 libegl1-mesa-dev glslang-tools
-libinput-bin libinput-dev libxcb-composite0-dev libavutil-dev libavcodec-dev libavformat-dev
-libxcb-ewmh2 libxcb-ewmh-dev libxcb-present-dev libxcb-icccm4-dev
-libxcb-render-util0-dev libxcb-res0-dev libxcb-xinput-dev xdg-desktop-portal-wlr
+vulkan-validationlayers-dev libvkfft-dev libgulkan-dev libegl-dev libgles2 libegl1-mesa-dev
+glslang-tools libinput-bin libinput-dev libxcb-composite0-dev libavutil-dev
+libavcodec-dev libavformat-dev libxcb-ewmh2 libxcb-ewmh-dev libxcb-present-dev
+libxcb-icccm4-dev libxcb-render-util0-dev libxcb-res0-dev libxcb-xinput-dev
+xdg-desktop-portal-wlr
 ```
 you will also need to build the latest wayland, wayland-protocols, and libdisplay-info tagged releases from source
 
@@ -152,9 +153,10 @@ cairo pango seatd libxkbcommon xcb-util-wm xorg-xwayland libinput libliftoff lib
 
 ```sh
 zypper in gcc-c++ git meson cmake "pkgconfig(cairo)" "pkgconfig(egl)" "pkgconfig(gbm)"
- "pkgconfig(gl)" "pkgconfig(glesv2)" "pkgconfig(libdrm)" "pkgconfig(libinput)" "pkgconfig(libseat)" "pkgconfig(libudev)"
- "pkgconfig(pango)" "pkgconfig(pangocairo)" "pkgconfig(pixman-1)" "pkgconfig(vulkan)" "pkgconfig(wayland-client)"
- "pkgconfig(wayland-protocols)" "pkgconfig(wayland-scanner)" "pkgconfig(wayland-server)" "pkgconfig(xcb)"
+ "pkgconfig(gl)" "pkgconfig(glesv2)" "pkgconfig(libdrm)" "pkgconfig(libinput)" 
+ "pkgconfig(libseat)" "pkgconfig(libudev)" "pkgconfig(pango)" "pkgconfig(pangocairo)"
+ "pkgconfig(pixman-1)" "pkgconfig(vulkan)" "pkgconfig(wayland-client)" "pkgconfig(xcb)"
+ "pkgconfig(wayland-protocols)" "pkgconfig(wayland-scanner)" "pkgconfig(wayland-server)" 
  "pkgconfig(xcb-icccm)" "pkgconfig(xcb-renderutil)" "pkgconfig(xkbcommon)" "pkgconfig(xwayland)"
  glslang-devel Mesa-libGLESv3-devel "pkgconfig(xcb-errors)"
 ```
@@ -216,7 +218,8 @@ for legacy renderer:
 
 ```plain
 sudo make clear && sudo make config && make protocols && make legacyrenderer &&
-sudo cp ./build/Hyprland /usr/bin && sudo cp ./example/hyprland.desktop /usr/share/wayland-sessions
+sudo cp ./build/Hyprland /usr/bin &&
+sudo cp ./example/hyprland.desktop /usr/share/wayland-sessions
 ```
 
 *please note the legacy renderer may not support some graphical features.*
@@ -224,7 +227,8 @@ Any other config: with your release
 
 ```plain
 sudo make clear && sudo make config && make protocols && make [PRESET]
-&& sudo cp ./build/Hyprland /usr/bin && sudo cp ./example/hyprland.desktop /usr/share/wayland-sessions
+&& sudo cp ./build/Hyprland /usr/bin &&
+sudo cp ./example/hyprland.desktop /usr/share/wayland-sessions
 ```
 
 # Custom Build flags
@@ -251,7 +255,9 @@ make clear && sudo make config && make protocols
 Then, configure CMake:
 
 ```plain
-mkdir -p build && cmake --no-warn-unused-cli -DCMAKE_BUILD_TYPE:STRING=Release -D<YOUR_FLAG>:STRING=true -H./ -B./build -G Ninja
+mkdir -p build &&
+cmake --no-warn-unused-cli -DCMAKE_BUILD_TYPE:STRING=Release 
+-D<YOUR_FLAG>:STRING=true -H./ -B./build -G Ninja
 ```
 
 Change `<YOUR_FLAG>` to one of the custom build flags. You **are allowed to**
