@@ -1,4 +1,4 @@
-**Master tutorial:**
+Master-tutorial
 
 If you are coming to Hyprland for the first time, this is the main tutorial to read.
 
